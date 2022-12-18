@@ -1,18 +1,18 @@
 {
   "nodes": {
-    "alacritty-theme": {
+    "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1666293490,
-        "narHash": "sha256-MHl8EmI+K8c0xpS/CdQI4EatM07glfF94P45X+gAhZo=",
-        "owner": "eendroroy",
-        "repo": "alacritty-theme",
-        "rev": "b7bde1e905c26857e95adfd129a4fd1b8718482e",
+        "lastModified": 1670179761,
+        "narHash": "sha256-HbJZbxNyecSHCaDpDV8hhMKKVzzfblctNvC8spFahuE=",
+        "owner": "dandavison",
+        "repo": "delta",
+        "rev": "5cef3872999f1084cb13013b002a6421c4aa3f15",
         "type": "github"
       },
       "original": {
-        "owner": "eendroroy",
-        "repo": "alacritty-theme",
+        "owner": "dandavison",
+        "repo": "delta",
         "type": "github"
       }
     },
@@ -77,11 +77,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1671323335,
-        "narHash": "sha256-LRrLk7HJna1DIsTSz4+b/7t8Xw3NP+xkiBZ5z44mmzo=",
+        "lastModified": 1671358227,
+        "narHash": "sha256-KmnT8YfU/KI4VxBlFMUltlAVLNvF7fTEQEsp41ZUHlA=",
         "owner": "Mic92",
         "repo": "nix-ld",
-        "rev": "a6fd41e3934eb35f04f88826ee0118e391b4e31f",
+        "rev": "baefaa2c91c9628bea3708cf3b9a9d6fcf326696",
         "type": "github"
       },
       "original": {
@@ -139,7 +139,7 @@
     },
     "root": {
       "inputs": {
-        "alacritty-theme": "alacritty-theme",
+        "delta": "delta",
         "home-manager": "home-manager",
         "nix-alien": "nix-alien",
         "nix-ld": "nix-ld",

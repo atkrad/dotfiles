@@ -29,9 +29,9 @@
 
   services.keybase.enable = true;
 
-  #fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     file
+    most
     htop
     btop
     curl
@@ -45,7 +45,6 @@
     jetbrains.goland
     jetbrains.phpstorm
     jetbrains.datagrip
-    go
     ghq
     
     # K8S toolset
@@ -58,6 +57,11 @@
     jq
     bitwarden-cli
   ];
+
+  home.sessionVariables = {
+    MANPAGER = "most";
+    MCFLY_RESULTS = 50;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -75,6 +79,8 @@
         "rm *"
         "pkill *"
         "reboot"
+        "shutdown"
+        "shutdown *"
       ];
     };
     oh-my-zsh = {
@@ -93,10 +99,63 @@
     };
   };
 
+  programs.go = {
+    enable = true;
+    goPath = "go"; # Primary GOPATH relative to HOME.
+    goPrivate = [
+      "gitlab.ci.fdmg.org"
+    ];
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = 14;
+      font = {
+        size = 15.5;
+        normal = {
+          family = "monospace";
+          style = "Regular";
+        };
+        bold = {
+          family = "monospace";
+          style = "Bold";
+        };
+        italic = {
+          family = "monospace";
+          style = "Italic";
+        };
+      };
+      # Colors (Dracula)
+      # themes: https://github.com/eendroroy/alacritty-theme
+      colors = {
+        # Default colors
+        primary = {
+          background = "0x282a36";
+          foreground = "0xf8f8f2";
+        };
+        # Normal colors
+        normal = {
+          black = "0x000000";
+          red = "0xff5555";
+          green = "0x50fa7b";
+          yellow = "0xf1fa8c";
+          blue = "0xbd93f9";
+          magenta = "0xff79c6";
+          cyan = "0x8be9fd";
+          white = "0xbbbbbb";
+        };
+        # Bright colors
+        bright = {
+          black = "0x555555";
+          red = "0xff5555";
+          green = "0x50fa7b";
+          yellow = "0xf1fa8c";
+          blue = "0xcaa9fa";
+          magenta = "0xff79c6";
+          cyan = "0x8be9fd";
+          white = "0xffffff";
+        };
+      };
     };
   };
 
@@ -135,14 +194,39 @@
       signByDefault = true;
       key = "62CAFDB8";
     };
+    delta = {
+      enable = true;
+      options = {
+        features = "decorations calochortus-lyallii";
+        syntax-theme = "Dracula";
+        line-numbers = true;
+        navigate = true;
+        side-by-side = true;
+      };
+    };
     extraConfig = {
       format.signoff = true;
+      diff.colorMoved = "default";
       ghq = {
         vcs = "git";
         root = "~/Workspace";
       };
+      merge.conflictstyle = "diff3";
+      pager = {
+        diff = "delta";
+        log = "delta";
+        reflog = "delta";
+        show = "delta";
+        blame = "delta";
+      };
+      url = {
+        "git@gitlab.ci.fdmg.org:".insteadOf = "https://gitlab.ci.fdmg.org/";
+      };
     };
     includes = [
+      {
+        path = "${inputs.delta}/themes.gitconfig";
+      }
       {
         condition = "gitdir:~/Workspace/gitlab.ci.fdmg.org/";
 	contents = {
@@ -163,8 +247,6 @@
     enableZshIntegration = true;
     enableSshSupport = true;
   };
-
-  #programs.gpaste.enable = true;
 
   dconf = {
     enable = true;
