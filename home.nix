@@ -42,9 +42,11 @@
     gnomeExtensions.appindicator
 
     # Development
+    gcc
     jetbrains.goland
     jetbrains.phpstorm
     jetbrains.datagrip
+    postman
     ghq
     
     # K8S toolset
@@ -99,6 +101,16 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    terminal = "tmux-256color";
+    clock24 = true;
+    plugins = with pkgs; [
+      tmuxPlugins.dracula
+    ];
+    #shortcut = "a";
+  };
+
   programs.go = {
     enable = true;
     goPath = "go"; # Primary GOPATH relative to HOME.
@@ -110,8 +122,18 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      shell = {
+        program = "tmux";
+        args = [
+          "new-session"
+          "-A"
+          "-D"
+          "-s"
+          "main"
+        ];
+      };
       font = {
-        size = 15.5;
+        size = 15;
         normal = {
           family = "monospace";
           style = "Regular";
