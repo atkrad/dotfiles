@@ -62,7 +62,7 @@
 
   home.sessionVariables = {
     MANPAGER = "most";
-    MCFLY_RESULTS = 50;
+    MCFLY_RESULTS = 20;
   };
 
   # Let Home Manager install and manage itself.
@@ -104,11 +104,23 @@
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
+    shortcut = "a";
     clock24 = true;
-    plugins = with pkgs; [
-      tmuxPlugins.dracula
+    baseIndex = 1;
+    historyLimit = 10000;
+    plugins = with pkgs.tmuxPlugins; [
+      {
+	plugin = dracula;
+	extraConfig = ''
+          set -g @dracula-show-left-icon session
+          set -g @dracula-show-flags true
+	  set -g @dracula-show-powerline true
+	  set -g @dracula-refresh-rate 2
+	  set -g @dracula-military-time true
+          set -g @dracula-plugins "time"
+	'';
+      }
     ];
-    #shortcut = "a";
   };
 
   programs.go = {
@@ -198,7 +210,7 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableLightTheme = false;
-    fuzzySearchFactor = 3;
+    fuzzySearchFactor = 2;
     keyScheme = "vim";
   };
 
