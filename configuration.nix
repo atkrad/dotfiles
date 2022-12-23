@@ -133,6 +133,8 @@
   programs.zsh.enable = true;
   programs.gpaste.enable = true;  
 
+  programs.nix-ld.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mohammad = {
     isNormalUser = true;
@@ -151,9 +153,6 @@
       wget
       pciutils
       usbutils
-#      nix-alien
-#      nix-index # not necessary, but recommended
-#      nix-index-update
     ];
   };
 
@@ -161,6 +160,7 @@
     enableDefaultFonts = true;
     fonts = with pkgs; [ 
       inconsolata
+      jetbrains-mono
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -172,9 +172,10 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Vazirmatn" "Noto" ];
-        sansSerif = [ "Vazirmatn" "Noto" ];
-        monospace = [ "Vazir Code" "Inconsolata" ];
+        serif = [ "Vazirmatn" "Noto Sans" ];
+        sansSerif = [ "Vazirmatn" "Noto Serif" ];
+        monospace = [ "Jetbrains Mono" "Inconsolata" ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
   };

@@ -5,7 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     # Nix-LD, Run unpatched dynamic binaries on NixOS.
-    nix-ld.url = "github:Mic92/nix-ld";
+    nix-ld.url = "github:Mic92/nix-ld?rev=baefaa2c91c9628bea3708cf3b9a9d6fcf326696";
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager
     home-manager = {
@@ -34,6 +34,7 @@
               inputs.nix-alien.overlays.default
             ];
             imports = [
+              # Optional, but this is needed for `nix-alien-ld` command
               inputs.nix-ld.nixosModules.nix-ld
             ];
             environment.systemPackages = with pkgs; [
