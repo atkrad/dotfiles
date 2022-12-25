@@ -40,6 +40,8 @@
     teams
     #gnomeExtensions.persian-calendar    
     gnomeExtensions.appindicator
+    gnome.gnome-tweaks
+    dracula-theme
 
     # Development
     gcc
@@ -298,7 +300,11 @@
       };
       "org/gnome/desktop/interface" = {
         show-battery-percentage = true;
+        color-scheme = "prefer-dark";
       };
+      #"org/gnome/desktop/wm/preferences" = {
+      #  theme = "Dracula";
+      #};
       "org/gnome/desktop/peripherals/mouse" = {
         natural-scroll = false;
       };
@@ -310,11 +316,18 @@
         disable-user-extensions = false;
         enabled-extensions = [
           #"PersianCalendar@oxygenws.com"
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
           "GPaste@gnome-shell-extensions.gnome.org"
           "appindicatorsupport@rgcjonas.gmail.com"
         ];
       };
     };
+  };
+
+  gtk = {
+    enable = true;
+    #theme.name = "Dracula";
+    cursorTheme.name = "Dracula-cursors";
   };
 
   # Nicely reload system units when changing configs

@@ -5,7 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     # Nix-LD, Run unpatched dynamic binaries on NixOS.
-    nix-ld.url = "github:Mic92/nix-ld?rev=baefaa2c91c9628bea3708cf3b9a9d6fcf326696";
+    nix-ld.url = "github:Mic92/nix-ld";
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager
     home-manager = {
