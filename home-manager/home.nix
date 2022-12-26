@@ -10,6 +10,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
+    ./zsh/zsh.nix
     ./bat/bat.nix
   ];
 
@@ -91,37 +92,6 @@
   programs.home-manager.enable = true;
 
   programs.bash.enable = true;
-  programs.zsh = {
-    enable = true;
-    enableVteIntegration = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    history = {
-      extended = true;
-      ignorePatterns = [
-        "rm *"
-        "pkill *"
-        "reboot"
-        "shutdown"
-        "shutdown *"
-      ];
-    };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "cp"
-        "git"
-        "sudo"
-        "history-substring-search"
-        "helm"
-        "docker"
-        "aws"
-        "ansible"
-        "golang"
-      ];
-    };
-  };
 
   programs.tmux = {
     enable = true;
