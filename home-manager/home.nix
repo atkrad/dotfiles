@@ -12,6 +12,7 @@
     # I split up my configuration and imported pieces of it here:
     ./zsh/zsh.nix
     ./tmux/tmux.nix
+    ./starship/starship.nix
     ./bat/bat.nix
   ];
 
@@ -176,12 +177,6 @@
     enableLightTheme = false;
     fuzzySearchFactor = 2;
     keyScheme = "vim";
-  };
-
-  programs.starship = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
   };
 
   programs.git = {
