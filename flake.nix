@@ -53,7 +53,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home Manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
-          ./home.nix
+          ./home-manager/home.nix
         ];
       };
     };
