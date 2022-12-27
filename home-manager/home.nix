@@ -12,6 +12,7 @@
     # I split up my configuration and imported pieces of it here:
     ./zsh/zsh.nix
     ./tmux/tmux.nix
+    ./mcfly/mcfly.nix
     ./starship/starship.nix
     ./bat/bat.nix
   ];
@@ -87,7 +88,6 @@
 
   home.sessionVariables = {
     MANPAGER = "most";
-    MCFLY_RESULTS = 20;
   };
 
   # Let Home Manager install and manage itself.
@@ -168,15 +168,6 @@
   programs.exa = {
     enable = true;
     enableAliases = true;
-  };
-
-  programs.mcfly = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableLightTheme = false;
-    fuzzySearchFactor = 2;
-    keyScheme = "vim";
   };
 
   programs.git = {
