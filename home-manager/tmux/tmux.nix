@@ -9,6 +9,7 @@
     baseIndex = 1;
     historyLimit = 10000;
     plugins = with pkgs.tmuxPlugins; [
+      better-mouse-mode
       {
         plugin = dracula;
         extraConfig = ''
@@ -21,5 +22,13 @@
         '';
       }
     ];
+    extraConfig = ''
+      # Mouse works as expected
+      set-option -g mouse on
+
+      # pane: split
+      bind | split-window -h -c '#{pane_current_path}'
+      bind - split-window -v -c '#{pane_current_path}'
+    '';
   };
 }
