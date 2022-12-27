@@ -3,7 +3,6 @@
 {
   programs.tmux = {
     enable = true;
-    terminal = "tmux-256color";
     shortcut = "a";
     clock24 = true;
     baseIndex = 1;
@@ -23,8 +22,14 @@
       }
     ];
     extraConfig = ''
+      set-option -g default-terminal screen-256color
+      set-option -ga terminal-overrides ',xterm-256color:Tc'
+
       # Mouse works as expected
       set-option -g mouse on
+
+      # window: renumber
+      set-option -g renumber-windows on
 
       # pane: split
       bind | split-window -h -c '#{pane_current_path}'
