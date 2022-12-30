@@ -1,40 +1,45 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 {
+  # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
+    # If you want to use modules your own flake exports (from modules/nixos):
+    # outputs.nixosModules.example
+
+    # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
-    # Include the results of the hardware scan.
+    # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
 
-  boot = {
-    # Force the NixOS to use up to date kernel to fix X.org server issue 
-    kernelPackages = pkgs.linuxPackages_latest;
-    # X Server has been failed to start with the newer 12th generation, Alder Lake, iRISxe integrated graphics chips.
-    # You have to give the kernel hint as to what driver to use.
-    # The "22e8" is my device id.
-    kernelParams = [ "i915.force_probe=22e8" ];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 10;
-      # Use the systemd-boot EFI boot loader.
-      systemd-boot.enable = true;
-    };
-  };
-
   nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.modifications
+      outputs.overlays.additions
+
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
     # Configure your nixpkgs instance
     config = {
+      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -53,6 +58,21 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+    };
+  };
+
+  boot = {
+    # Force the NixOS to use up to date kernel to fix X.org server issue 
+    kernelPackages = pkgs.linuxPackages_latest;
+    # X Server has been failed to start with the newer 12th generation, Alder Lake, iRISxe integrated graphics chips.
+    # You have to give the kernel hint as to what driver to use.
+    # The "22e8" is my device id.
+    kernelParams = [ "i915.force_probe=22e8" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+      # Use the systemd-boot EFI boot loader.
+      systemd-boot.enable = true;
     };
   };
 
@@ -212,4 +232,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 }
-

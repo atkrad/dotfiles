@@ -1,6 +1,10 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    xsel
+  ];
+
   programs.tmux = {
     enable = true;
     shortcut = "a";
@@ -8,7 +12,16 @@
     baseIndex = 1;
     historyLimit = 10000;
     plugins = with pkgs.tmuxPlugins; [
+      copycat
+      pain-control
       better-mouse-mode
+      {
+        plugin = yank;
+        extraConfig = ''
+          set -g @override_copy_command '${pkgs.xsel}/bin/xsel'
+          set -g @yank_action 'copy-pipe-and-cancel'
+        '';
+      }
       {
         plugin = dracula;
         extraConfig = ''
@@ -25,15 +38,18 @@
       set-option -g default-terminal screen-256color
       set-option -ga terminal-overrides ',xterm-256color:Tc'
 
-      # Mouse works as expected
+      # Terminal window names
+      set-option -g set-titles on
+      set-option -g set-titles-string '#{window_name}'
+
+      # Clipboard integration
+      set-option -g set-clipboard on
+
+      # Mouse behaviour
       set-option -g mouse on
 
       # window: renumber
       set-option -g renumber-windows on
-
-      # pane: split
-      bind | split-window -h -c '#{pane_current_path}'
-      bind - split-window -v -c '#{pane_current_path}'
     '';
   };
 }

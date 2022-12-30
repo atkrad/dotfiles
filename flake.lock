@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "dracula-gtk-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672006597,
+        "narHash": "sha256-D/vgAks7tV/I/3c6GRyvT6/Mv2CDwc7bTTsM3ot9JP4=",
+        "owner": "dracula",
+        "repo": "gtk",
+        "rev": "4a0fabf4ee56886782894f3ea974616d83f1c0e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dracula",
+        "repo": "gtk",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1667395993,
@@ -39,11 +55,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1671966569,
-        "narHash": "sha256-jbLgfSnmLchARBNFRvCic63CFQ9LAyvlXnBpc2kwjQc=",
+        "lastModified": 1672262207,
+        "narHash": "sha256-o7h3bneTsk0d5yKeUynX00kspE2ioIuL40LzZ7EXars=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c55fa26ce05fee8e063db22918d05a73d430b2ea",
+        "rev": "8745cc9a21658260437b20968278f16565021662",
         "type": "github"
       },
       "original": {
@@ -58,11 +74,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1671096219,
-        "narHash": "sha256-DFpD0CQU+/vvBYLYad/XpMNC4IGgG/i1ev56Z4JG5QU=",
+        "lastModified": 1672257991,
+        "narHash": "sha256-y8PXQLfbHqutORvr4VutOhxAAlx3rVT/Bcnvv8nS76E=",
         "owner": "thiagokokada",
         "repo": "nix-alien",
-        "rev": "cc77180e74ad9a7e6c6c8912ce14870846008072",
+        "rev": "967735b1f9bdc12f24e7b1ac336e499d12896988",
         "type": "github"
       },
       "original": {
@@ -140,6 +156,7 @@
     "root": {
       "inputs": {
         "delta": "delta",
+        "dracula-gtk-theme": "dracula-gtk-theme",
         "home-manager": "home-manager",
         "nix-alien": "nix-alien",
         "nix-ld": "nix-ld",
