@@ -18,6 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ./locate
   ];
 
   nixpkgs = {
@@ -91,9 +92,13 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
+    earlySetup = true;
     font = "Lat2-Terminus16";
     keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
+    #packages = with pkgs; [
+    #  terminus_font
+    #];
+    #useXkbConfig = true; # use xkbOptions in tty.
   };
 
   # X11 windowing system.
