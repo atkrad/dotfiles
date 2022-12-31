@@ -53,6 +53,15 @@
           "GPaste@gnome-shell-extensions.gnome.org"
           "appindicatorsupport@rgcjonas.gmail.com"
         ];
+        favorite-apps = [
+          "firefox.desktop"
+          "Alacritty.desktop"
+          "org.gnome.Nautilus.desktop"
+          "postman.desktop"
+          "goland.desktop"
+          "phpstorm.desktop"
+          "datagrip.desktop"
+        ];
       };
     };
   };
