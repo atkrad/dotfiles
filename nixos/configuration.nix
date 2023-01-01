@@ -14,6 +14,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # I also split up my configuration and import pieces of it here:
+    ./nix-ld
     ./fonts
     ./locate
 
@@ -157,8 +158,6 @@
 
   programs.zsh.enable = true;
   programs.gpaste.enable = true;  
-
-  programs.nix-ld.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mohammad = {

@@ -73,20 +73,6 @@
           modules = [
             # My main nixos configuration file
             ./nixos/configuration.nix
-            ({ inputs, pkgs, ... }: {
-              nixpkgs.overlays = [
-                inputs.nix-alien.overlays.default
-              ];
-              imports = [
-                # Optional, but this is needed for `nix-alien-ld` command
-                inputs.nix-ld.nixosModules.nix-ld
-              ];
-              environment.systemPackages = with pkgs; [
-                nix-alien
-                nix-index # not necessary, but recommended
-                nix-index-update
-              ];
-            })
           ];
         };
       };
