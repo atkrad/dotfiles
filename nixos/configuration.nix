@@ -14,6 +14,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # I also split up my configuration and import pieces of it here:
+    ./fonts
     ./locate
 
     # Import your generated (nixos-generate-config) hardware configuration
@@ -178,30 +179,6 @@
       pciutils
       usbutils
     ];
-  };
-
-  fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [ 
-      inconsolata
-      jetbrains-mono
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      nerdfonts # Required for starship
-      # Persian Fonts
-      vazir-fonts
-      vazir-code-font
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "Vazirmatn" "Noto Sans" ];
-        sansSerif = [ "Vazirmatn" "Noto Serif" ];
-        monospace = [ "Jetbrains Mono" "Inconsolata" ];
-        emoji = [ "Noto Color Emoji" ];
-      };
-    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
