@@ -12,6 +12,7 @@
     # I split up my configuration and imported pieces of it here:
     ./zsh
     ./bash
+    ./vim
     ./tmux
     ./mcfly
     ./starship
@@ -65,7 +66,6 @@
     htop
     btop
     curl
-    vim
     firefox
     teams
 
