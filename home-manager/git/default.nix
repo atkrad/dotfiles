@@ -23,6 +23,9 @@
         side-by-side = true;
       };
     };
+    ignores = [
+      ".idea" # Jetbrains
+    ];
     extraConfig = {
       format.signoff = true;
       diff.colorMoved = "default";
