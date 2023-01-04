@@ -12,7 +12,7 @@
     # I split up my configuration and imported pieces of it here:
     ./zsh
     ./bash
-    ./vim
+    ./neovim
     ./tmux
     ./mcfly
     ./starship
