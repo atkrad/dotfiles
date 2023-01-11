@@ -43,6 +43,12 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      (final: prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      })
     ];
 
     # Configure your nixpkgs instance
@@ -69,11 +75,14 @@
     firefox
     teams
 
+    vlc
+    mplayer
+
     # Development
     gcc
-    jetbrains.goland
-    jetbrains.phpstorm
-    jetbrains.datagrip
+    unstable.jetbrains.goland
+    unstable.jetbrains.phpstorm
+    unstable.jetbrains.datagrip
     postman
     jq
     
