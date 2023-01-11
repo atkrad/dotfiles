@@ -5,6 +5,9 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
 
+    # I use the unstable nixpkgs repo for some packages.
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     # Pure Nix flake utility functions
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -26,7 +29,7 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         utils.follows = "flake-utils";
@@ -92,7 +95,7 @@
       # Available through 'home-manager switch --flake .#mohammad@nixie-ci'
       homeConfigurations = {
         "mohammad@nixie-ci" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home Manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Home Manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
           modules = [
             # My main home-manager configuration file
