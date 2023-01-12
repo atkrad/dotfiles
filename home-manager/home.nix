@@ -14,7 +14,7 @@
     ./bash
     ./neovim
     ./tmux
-    ./mcfly
+    ./fzf
     ./starship
     ./bat
     ./git
