@@ -74,7 +74,7 @@
     curl
     firefox
     teams
-
+    spotify
     vlc
     mplayer
 
