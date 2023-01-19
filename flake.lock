@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "dracula-alacritty-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657835640,
+        "narHash": "sha256-eJkVxcaDiIbTrI1Js5j+Nl88gawTE/mfVjstjqQOOdU=",
+        "owner": "dracula",
+        "repo": "alacritty",
+        "rev": "77aff04b9f2651eac10e5cfa80a3d85ce43e7985",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dracula",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
     "dracula-gtk-theme": {
       "flake": false,
       "locked": {
@@ -152,6 +168,7 @@
     "root": {
       "inputs": {
         "delta": "delta",
+        "dracula-alacritty-theme": "dracula-alacritty-theme",
         "dracula-gtk-theme": "dracula-gtk-theme",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

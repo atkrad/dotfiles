@@ -47,6 +47,10 @@
       url = "github:dracula/gtk";
       flake = false;
     };
+    dracula-alacritty-theme = {
+      url = "github:dracula/alacritty";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
