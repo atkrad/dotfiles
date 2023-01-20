@@ -38,6 +38,9 @@
       #"org/gnome/desktop/wm/preferences" = {
       #  theme = "Dracula";
       #};
+      #"org/gnome/shell/extensions/user-theme" = {
+      #  name = "Dracula";
+      #};
       "org/gnome/desktop/peripherals/mouse" = {
         natural-scroll = false;
       };
