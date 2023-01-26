@@ -69,6 +69,7 @@
 
   home.packages = with pkgs; [
     file
+    gnumake
     htop
     btop
     curl
@@ -85,11 +86,15 @@
     unstable.jetbrains.datagrip
     postman
     jq
+    grpcurl
     
     # K8S toolset
     kubectx
     kubectl
     kubernetes-helm
+    argo
+
+    buildah
 
     awscli2
     ansible
