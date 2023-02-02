@@ -81,13 +81,15 @@
 
     # Development
     gcc
+    nodejs
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
     unstable.jetbrains.datagrip
     postman
     jq
     grpcurl
-    
+    hugo
+
     # K8S toolset
     kubectx
     kubectl
