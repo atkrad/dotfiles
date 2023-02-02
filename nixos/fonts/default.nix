@@ -20,7 +20,7 @@
         serif = [ "Vazirmatn" "Noto Sans" ];
         sansSerif = [ "Vazirmatn" "Noto Serif" ];
         monospace = [ "Jetbrains Mono" "Inconsolata" ];
-        emoji = [ "Noto Color Emoji" ];
+        emoji = [ "Noto Color Emoji" "Noto Emoji" ];
       };
     };
   };
