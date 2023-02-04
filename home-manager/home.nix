@@ -78,7 +78,8 @@
     spotify
     vlc
     mplayer
-
+    appimage-run
+    
     # Development
     gcc
     nodejs
