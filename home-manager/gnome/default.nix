@@ -48,6 +48,16 @@
         natural-scroll = false;
         tap-to-click = true;
       };
+      "org/gnome/shell/extensions/auto-move-windows" = {
+        application-list = [
+          "firefox.desktop:1"
+          "goland.desktop:1"
+          "phpstorm.desktop:1"
+          "datagrip.desktop:1"
+          "teams.desktop:2"
+          "spotify.desktop:3"
+        ];
+      };
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
@@ -55,6 +65,7 @@
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "GPaste@gnome-shell-extensions.gnome.org"
           "appindicatorsupport@rgcjonas.gmail.com"
+          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         ];
         favorite-apps = [
           "firefox.desktop"
