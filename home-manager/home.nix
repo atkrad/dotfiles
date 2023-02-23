@@ -45,9 +45,13 @@
       # })
       (final: prev: {
         unstable = import inputs.nixpkgs-unstable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
+          system = prev.system;
+          config = config.nixpkgs.config;
         };
+      })
+      (final: prev: {
+        dracula-theme = prev.dracula-theme.overrideAttrs
+          (_: { src = inputs.dracula-gtk-theme; });
       })
     ];
 
