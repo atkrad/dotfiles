@@ -25,6 +25,7 @@
     ./exa
     ./gpg
     ./keybase
+    ./zoxide
   ];
 
   nixpkgs = {
