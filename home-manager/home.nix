@@ -32,8 +32,9 @@
     # You can add overlays here
     overlays = [
       # If you want to use overlays your own flake exports (from overlays dir):
-      outputs.overlays.modifications
       outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
 
       # Or overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -44,16 +45,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      (final: prev: {
-        unstable = import inputs.nixpkgs-unstable {
-          system = prev.system;
-          config = config.nixpkgs.config;
-        };
-      })
-      (final: prev: {
-        dracula-theme = prev.dracula-theme.overrideAttrs
-          (_: { src = inputs.dracula-gtk-theme; });
-      })
     ];
 
     # Configure your nixpkgs instance
