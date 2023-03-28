@@ -26,8 +26,9 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.modifications
       outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -127,7 +128,17 @@
   # };
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
+
+  # Using a printer that shared on the network
+  services.avahi = {
+    enable = true;
+    # Important to resolve .local domains of printers, otherwise you get an error
+    # like  "Impossible to connect to XXX.local: Name or service not known"
+    nssmdns = true;
+    # for a WiFi printer
+    openFirewall = true;
+  };
 
   # Enable sound.
   sound.enable = true;
