@@ -3,8 +3,11 @@
 {
   home.packages = with pkgs; [
     #gnomeExtensions.persian-calendar
+    unstable.gnomeExtensions.tiling-assistant
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
     gnome.gnome-tweaks
+    gnome-console
     dracula-theme
   ];
 
@@ -12,7 +15,6 @@
     enable = true;
     #theme = {
     #  name = "Dracula";
-    #  package = pkgs.dracula-theme;
     #};
     cursorTheme.name = "Dracula-cursors";
   };
@@ -35,9 +37,14 @@
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
       };
-      #"org/gnome/desktop/wm/preferences" = {
+      "org/gnome/desktop/wm/preferences" = {
       #  theme = "Dracula";
-      #};
+        workspace-names = [
+          "main"
+          "dev"
+        ];
+        button-layout = "appmenu:minimize,close";
+      };
       #"org/gnome/shell/extensions/user-theme" = {
       #  name = "Dracula";
       #};
@@ -48,14 +55,18 @@
         natural-scroll = false;
         tap-to-click = true;
       };
+      "org/gnome/shell/app-switcher" = {
+        current-workspace-only = true;
+      };
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
           "firefox.desktop:1"
-          "goland.desktop:1"
-          "phpstorm.desktop:1"
-          "datagrip.desktop:1"
-          "teams.desktop:2"
-          "spotify.desktop:3"
+          "goland.desktop:2"
+          "phpstorm.desktop:2"
+          "datagrip.desktop:2"
+          "postman.desktop:2"
+          "teams.desktop:3"
+          "spotify.desktop:4"
         ];
       };
       "org/gnome/shell" = {
@@ -63,6 +74,8 @@
         enabled-extensions = [
           #"PersianCalendar@oxygenws.com"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "tiling-assistant@leleat-on-github"
+          "dash-to-dock@micxgx.gmail.com"
           "GPaste@gnome-shell-extensions.gnome.org"
           "appindicatorsupport@rgcjonas.gmail.com"
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
