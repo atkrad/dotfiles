@@ -1,4 +1,4 @@
-# Atkrad's NixOS Configuration and Dotfiles
+# My NixOS Configuration and Dotfiles
 
 This repository contains the NixOS configuration and dotfiles for my machines. It includes settings for various tools and applications, such as system services, window managers, terminal emulators, and text editors. By sharing these configurations, others can learn from my setup and adapt it to their own needs.
 
