@@ -82,7 +82,7 @@
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
     unstable.jetbrains.datagrip
-    postman
+    unstable.postman
     jq
     grpcurl
     hugo
