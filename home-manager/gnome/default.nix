@@ -8,7 +8,7 @@
     gnomeExtensions.appindicator
     gnome.gnome-tweaks
     gnome-console
-    dracula-theme
+    unstable.dracula-theme
   ];
 
   gtk = {
@@ -38,7 +38,7 @@
         color-scheme = "prefer-dark";
       };
       "org/gnome/desktop/wm/preferences" = {
-      #  theme = "Dracula";
+        #theme = "Dracula";
         workspace-names = [
           "main"
           "dev"
