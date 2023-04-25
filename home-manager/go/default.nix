@@ -9,6 +9,7 @@
 
   programs.go = {
     enable = true;
+    package = pkgs.unstable.go;
     goPath = "go"; # Primary GOPATH relative to HOME.
     goPrivate = [
       "gitlab.ci.fdmg.org"
