@@ -67,10 +67,12 @@
   home.packages = with pkgs; [
     file
     gnumake
+    dig
     htop
     btop
     curl
     firefox
+    google-chrome
     teams
     spotify
     vlc
@@ -87,16 +89,22 @@
     jq
     grpcurl
     hugo
+    rnix-lsp
 
     # K8S toolset
     kubectx
     kubectl
     kubernetes-helm
+    minikube
+    kind
+    lens
     argo
 
     buildah
-
+    
+    # Infra
     awscli2
+    terraform
     ansible
     bitwarden-cli
   ];
