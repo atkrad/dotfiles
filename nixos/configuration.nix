@@ -83,6 +83,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.dns = "dnsmasq";
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -111,7 +112,7 @@
     desktopManager.gnome.enable = true;
     excludePackages = [ pkgs.xterm ];
   };
-  
+
   # Enable fingerprint
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
