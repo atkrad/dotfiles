@@ -5,21 +5,19 @@
     enableDefaultFonts = true;
     fonts = with pkgs; [
       inconsolata
-      jetbrains-mono
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      nerdfonts
-      # Persian Fonts
+      (unstable.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       vazir-fonts
-      vazir-code-font
     ];
 
     fontconfig = {
       defaultFonts = {
         serif = [ "Vazirmatn" "Noto Sans" ];
         sansSerif = [ "Vazirmatn" "Noto Serif" ];
-        monospace = [ "Jetbrains Mono" "Inconsolata" ];
+	# The Alacritty can't use the emoji category, so I append the emoji fonts as the "monospace" fallback
+        monospace = [ "Jetbrains Mono Nerd Font" "ٰInconsolata" "Noto Color Emoji" ];
         emoji = [ "Noto Color Emoji" "Noto Emoji" ];
       };
     };
