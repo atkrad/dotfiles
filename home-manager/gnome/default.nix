@@ -36,6 +36,7 @@
       "org/gnome/desktop/interface" = {
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
+        monospace-font-name = "Jetbrains Mono Nerd Font 10";
       };
       "org/gnome/desktop/wm/preferences" = {
         #theme = "Dracula";
