@@ -12,6 +12,7 @@
       hostname.style = "bold #ff5555";
       git_branch.style = "bold #ff79c6";
       git_status.style = "bold #ff5555";
+      helm.symbol = "☸️  ";
       username = {
         format = "[$user]($style) on ";
         style_user = "bold #bd93f9";
