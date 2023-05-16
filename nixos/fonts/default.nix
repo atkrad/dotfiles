@@ -8,7 +8,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (unstable.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       vazir-fonts
     ];
 
