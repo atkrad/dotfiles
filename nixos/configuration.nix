@@ -114,9 +114,8 @@
   };
 
   # Enable fingerprint
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.xscreensaver.fprintAuth = true;  
+  services.fprintd.enable = false;
+  security.pam.services.login.fprintAuth = false;
 
   # fwupd is a simple daemon allowing you to update some devices' firmware.
   services.fwupd.enable = true;
