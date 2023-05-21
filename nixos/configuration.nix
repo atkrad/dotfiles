@@ -189,6 +189,22 @@
       pciutils
       usbutils
     ];
+    gnome.excludePackages = with pkgs; [
+      baobab
+      epiphany
+      gnome-tour
+      gnome-photos
+      gnome-connections
+      gnome.totem
+      gnome.geary
+      gnome.gnome-logs
+      gnome.gnome-maps
+      gnome.simple-scan
+      gnome.gnome-music
+      gnome.gnome-contacts
+      gnome.gnome-characters
+      gnome.gnome-disk-utility
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
