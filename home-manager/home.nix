@@ -75,7 +75,6 @@
     teams
     spotify
     vlc
-    mplayer
     appimage-run
     
     # Development
