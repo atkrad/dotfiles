@@ -68,7 +68,6 @@
     file
     gnumake
     dig
-    htop
     btop
     curl
     firefox
