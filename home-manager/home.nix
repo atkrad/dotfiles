@@ -88,6 +88,7 @@
     grpcurl
     hugo
     rnix-lsp
+    unstable.open-policy-agent
 
     # K8S toolset
     kubectx
