@@ -13,9 +13,6 @@
 
   gtk = {
     enable = true;
-    #theme = {
-    #  name = "Dracula";
-    #};
     cursorTheme.name = "Dracula-cursors";
   };
 
@@ -27,28 +24,29 @@
         per-window = false;
       };
       "org/gnome/Console" = {
-        font-scale = 1.3;
+        #font-scale = 1.3;
         theme = "auto";
       };
       "org/gnome/desktop/calendar" = {
         show-weekdate = true;
       };
       "org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita"; # e.g. "Adwaita", "Dracula"
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
-        monospace-font-name = "Jetbrains Mono Nerd Font 10";
+        monospace-font-name = "JetbrainsMono Nerd Font 13";
       };
       "org/gnome/desktop/wm/preferences" = {
-        #theme = "Dracula";
+        theme = "";
         workspace-names = [
           "main"
           "dev"
         ];
         button-layout = "appmenu:minimize,close";
       };
-      #"org/gnome/shell/extensions/user-theme" = {
-      #  name = "Dracula";
-      #};
+      "org/gnome/shell/extensions/user-theme" = {
+        name = ""; # e.g. "", "Dracula"
+      };
       "org/gnome/desktop/peripherals/mouse" = {
         natural-scroll = false;
       };
