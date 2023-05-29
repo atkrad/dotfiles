@@ -71,7 +71,7 @@
     kernelParams = [ "i915.force_probe=22e8" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 10;
+      systemd-boot.configurationLimit = 15;
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
     };
