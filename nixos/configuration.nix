@@ -65,8 +65,6 @@
   };
 
   boot = {
-    # Force the NixOS to use up to date kernel to fix X.org server issue 
-    kernelPackages = pkgs.linuxPackages_latest;
     # X Server has been failed to start with the newer 12th generation, Alder Lake, iRISxe integrated graphics chips.
     # You have to give the kernel hint as to what driver to use.
     # The "22e8" is my device id.
