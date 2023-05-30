@@ -28,22 +28,6 @@
       };
       font = {
         size = 13;
-        normal = {
-          family = "monospace";
-          style = "Regular";
-        };
-        bold = {
-          family = "monospace";
-          style = "Bold";
-        };
-        italic = {
-          family = "monospace";
-          style = "Italic";
-        };
-        bold_italic = {
-          family = "monospace";
-          style = "Bold Italic";
-        };
       };
       import = [
         "${inputs.dracula-alacritty-theme}/dracula.yml"
