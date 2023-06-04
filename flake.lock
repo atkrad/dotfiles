@@ -3,11 +3,11 @@
     "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1685760038,
-        "narHash": "sha256-UY99OU3b4hfincmBi8tgzj2XoNwIOM/AKPcMYsLBMoQ=",
+        "lastModified": 1685810645,
+        "narHash": "sha256-Q/lHiQySxjVNviYOdQe+hn8FMLJXuOwbNnNhJdIrpX4=",
         "owner": "dandavison",
         "repo": "delta",
-        "rev": "dda9a87421a2590ed3a37637ab1d956fd5083af1",
+        "rev": "01f92de6df52457aceb68a5c89b2bb440a6b64d7",
         "type": "github"
       },
       "original": {
@@ -174,11 +174,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1685620773,
-        "narHash": "sha256-iQ+LmporQNdLz8uMJdP62TaAWeLUwl43/MYUBtWqulM=",
+        "lastModified": 1685801374,
+        "narHash": "sha256-otaSUoFEMM+LjBI1XL/xGB5ao6IwnZOXc47qhIgJe8U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f0ba8235153dd2e25cf06cbf70d43efdd4443592",
+        "rev": "c37ca420157f4abc31e26f436c1145f8951ff373",
         "type": "github"
       },
       "original": {
@@ -190,11 +190,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1685677062,
-        "narHash": "sha256-zoHF7+HNwNwne2XEomphbdc4Y8tdWT16EUxUTXpOKpQ=",
+        "lastModified": 1685833905,
+        "narHash": "sha256-dKM4Wfb4PMorBGzB3WntleHDN3rz/AiWmbqyFkj9Qzs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "95be94370d09f97f6af6a1df1eb9649b5260724e",
+        "rev": "ed7bbf16855a9ec919e5c6372ba3a297ec1df550",
         "type": "github"
       },
       "original": {
@@ -214,7 +214,8 @@
         "nix-alien": "nix-alien",
         "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "wait4x": "wait4x"
       }
     },
     "systems": {
@@ -229,6 +230,29 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wait4x": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685857967,
+        "narHash": "sha256-ORjRTlE+SZ/E/ubDMBtMrkxiIDLS7HQLMiFyiJBNIjM=",
+        "owner": "atkrad",
+        "repo": "wait4x",
+        "rev": "7ed908efee091ea9435b58549f61934762f3d705",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atkrad",
+        "repo": "wait4x",
         "type": "github"
       }
     }
