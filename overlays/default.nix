@@ -11,6 +11,7 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    wait4x = inputs.wait4x.packages.${prev.system}.default;
     #dracula-theme = prev.dracula-theme.overrideAttrs (oldAttrs: {
     #  version = "4.0.0";
     #  src = final.fetchFromGitHub {

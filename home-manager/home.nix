@@ -80,15 +80,16 @@
     # Development
     gcc
     nodejs
-    unstable.jetbrains.goland
-    unstable.jetbrains.phpstorm
-    unstable.jetbrains.datagrip
-    unstable.postman
+    jetbrains.goland
+    jetbrains.phpstorm
+    jetbrains.datagrip
+    postman
     jq
     grpcurl
     hugo
     rnix-lsp
     unstable.open-policy-agent
+    wait4x
 
     # K8S toolset
     kubectx

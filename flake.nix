@@ -50,6 +50,13 @@
       url = "github:dracula/alacritty";
       flake = false;
     };
+    wait4x = {
+      url = "github:atkrad/wait4x";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
