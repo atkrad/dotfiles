@@ -16,7 +16,6 @@
       url = "github:Mic92/nix-ld";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
       };
     };
     nix-alien = {
