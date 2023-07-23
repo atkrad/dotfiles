@@ -17,6 +17,7 @@
     ./fzf
     ./starship
     ./bat
+    ./btop
     ./git
     ./alacritty
     ./gnome
@@ -68,7 +69,6 @@
     file
     gnumake
     dig
-    btop
     curl
     firefox
     google-chrome
