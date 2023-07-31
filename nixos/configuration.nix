@@ -90,6 +90,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # V2Ray Configuration
+  services.v2ray.enable = false;
+  services.v2ray.package = pkgs.unstable.v2ray;
+  services.v2ray.configFile = "/home/mohammad/config.json";
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
