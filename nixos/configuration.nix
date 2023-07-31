@@ -191,6 +191,7 @@
       wget
       pciutils
       usbutils
+      gparted
     ];
     gnome.excludePackages = with pkgs; [
       baobab
