@@ -6,6 +6,9 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     defaultOptions = [];
+    tmux = {
+      enableShellIntegration = true;
+    };
     colors = {
       fg = "#f8f8f2";
       bg = "#282a36";
