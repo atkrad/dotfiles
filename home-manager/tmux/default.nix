@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     xsel
+    pstree # Recommended for "tmux-fzf" plugin
   ];
 
   programs.tmux = {
@@ -15,6 +16,12 @@
       copycat
       pain-control
       better-mouse-mode
+      {
+        plugin = tmux-fzf;
+        extraConfig = ''
+          TMUX_FZF_LAUNCH_KEY="C-f"
+        '';
+      }
       {
         plugin = yank;
         extraConfig = ''
@@ -35,6 +42,10 @@
       }
     ];
     extraConfig = ''
+      # Keybinding.
+      bind -n C-PageUp   previous-window
+      bind -n C-PageDown next-window
+
       set-option -g default-terminal screen-256color
       set-option -ga terminal-overrides ',xterm-256color:Tc'
 
