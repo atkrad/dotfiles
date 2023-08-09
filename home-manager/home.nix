@@ -80,9 +80,9 @@
     # Development
     gcc
     nodejs
-    jetbrains.goland
-    jetbrains.phpstorm
-    jetbrains.datagrip
+    unstable.jetbrains.goland
+    unstable.jetbrains.phpstorm
+    unstable.jetbrains.datagrip
     postman
     jq
     grpcurl
