@@ -35,11 +35,11 @@
     "dracula-gtk-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1691272614,
-        "narHash": "sha256-4LDXJ3peC3+GtliEMvZnsplv3c9cY3herfMReh2jyp4=",
+        "lastModified": 1692653403,
+        "narHash": "sha256-oQ4pp7S5oVE2dzGEqL9l4YUYUUbowtZ+dacpe31ug6w=",
         "owner": "dracula",
         "repo": "gtk",
-        "rev": "954f86dfa92a472c6671f6f1d0972880d56cb624",
+        "rev": "3b05980bc648b05ac8037f811649c3bcccf5aada",
         "type": "github"
       },
       "original": {
@@ -187,11 +187,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1692494774,
-        "narHash": "sha256-noGVoOTyZ2Kr5OFglzKYOX48cx3hggdCPbXrYMG2FDw=",
+        "lastModified": 1692557222,
+        "narHash": "sha256-TCOtZaioLf/jTEgfa+nyg0Nwq5Uc610Z+OFV75yUgGw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3476a10478587dec90acb14ec6bde0966c545cc0",
+        "rev": "0b07d4957ee1bd7fd3bdfd12db5f361bd70175a6",
         "type": "github"
       },
       "original": {
