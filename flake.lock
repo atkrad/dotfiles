@@ -19,11 +19,11 @@
     "dracula-alacritty-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1693399850,
-        "narHash": "sha256-w0YEXikeoJtQjN5h91wff8EriR8XYXRrW7YoVAXm4jI=",
+        "lastModified": 1693513344,
+        "narHash": "sha256-VwP5iTQf3nFe2ZPVoc5adzoIMVYxfdHBdjVOfi6e5yA=",
         "owner": "dracula",
         "repo": "alacritty",
-        "rev": "b95e8bd21e9da8825b5fb8938ffd16d87e303e2c",
+        "rev": "18353e319fada1e33c20b3dae840f9ce6eeede5d",
         "type": "github"
       },
       "original": {
