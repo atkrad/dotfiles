@@ -29,14 +29,11 @@
       font = {
         size = 13;
       };
-      import = [
-        "${inputs.dracula-alacritty-theme}/dracula.yml"
-      ];
       cursor = {
         style = "Beam";
         blinking = "Always";
         unfocused_hollow = true;
       };
-    };
+    } // builtins.fromTOML (builtins.readFile "${inputs.dracula-alacritty-theme}/dracula.toml");
   };
 }
