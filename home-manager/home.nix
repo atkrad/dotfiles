@@ -90,11 +90,12 @@
     rnix-lsp
     unstable.open-policy-agent
     wait4x
+    unstable.ulid
 
     # K8S toolset
     kubectx
     kubectl
-    kubernetes-helm
+    unstable.kubernetes-helm
     minikube
     kind
     lens
