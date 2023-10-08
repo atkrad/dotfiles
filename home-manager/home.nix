@@ -72,7 +72,7 @@
     curl
     firefox
     google-chrome
-    teams
+    unstable.teams-for-linux
     spotify
     vlc
     appimage-run
