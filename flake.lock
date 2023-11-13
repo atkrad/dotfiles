@@ -35,11 +35,11 @@
     "dracula-gtk-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1699826326,
-        "narHash": "sha256-95EL8f5FErnAiH2EACFqLbogk6q1zUtPHeR4c2Crgv8=",
+        "lastModified": 1699908446,
+        "narHash": "sha256-Y5RrSd3KSCutfddl76HVLPchUWL6oaE2SQPbjNQIEp4=",
         "owner": "dracula",
         "repo": "gtk",
-        "rev": "c096fafdff7812813b5a1b8e72d70f48cad9641b",
+        "rev": "107c6e73ca2a47a182ce3c157e8d9c3717616ca3",
         "type": "github"
       },
       "original": {
