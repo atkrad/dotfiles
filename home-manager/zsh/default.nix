@@ -17,6 +17,12 @@
         "shutdown *"
       ];
     };
+    plugins = with pkgs; [
+      {
+        name = "fzf-tab";
+        src = zsh-fzf-tab.src;
+      }
+    ];
     oh-my-zsh = {
       enable = true;
       plugins = [
