@@ -69,6 +69,7 @@
     # You have to give the kernel hint as to what driver to use.
     # The "22e8" is my device id.
     kernelParams = [ "i915.force_probe=22e8" ];
+    supportedFilesystems = [ "ntfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 15;
@@ -208,6 +209,13 @@
       gnome.gnome-contacts
       gnome.gnome-characters
       gnome.gnome-disk-utility
+    ];
+    # Note: https://github.com/NixOS/nixpkgs/issues/195936
+    sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
+      pkgs.gst_all_1.gst-plugins-good
+      pkgs.gst_all_1.gst-plugins-bad
+      pkgs.gst_all_1.gst-plugins-ugly
+      pkgs.gst_all_1.gst-plugins-base
     ];
   };
 
