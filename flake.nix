@@ -41,11 +41,6 @@
       flake = false; 
     };
 
-    dracula-gtk-theme = {
-      url = "github:dracula/gtk";
-      flake = false;
-    };
-    
     dracula-wallpaper = {
       url = "github:dracula/wallpaper";
       flake = false;

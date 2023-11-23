@@ -101,8 +101,8 @@
       };
     };
   };
-  home.file.".config/gtk-4.0/gtk.css".source = "${inputs.dracula-gtk-theme}/gtk-4.0/gtk.css";
-  home.file.".config/gtk-4.0/gtk-dark.css".source = "${inputs.dracula-gtk-theme}/gtk-4.0/gtk-dark.css";
-  home.file.".config/gtk-4.0/assets".source = "${inputs.dracula-gtk-theme}/gtk-4.0/assets";
-  home.file.".config/assets".source = "${inputs.dracula-gtk-theme}/assets";
+  home.file.".config/gtk-4.0/gtk.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk.css";
+  home.file.".config/gtk-4.0/gtk-dark.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk-dark.css";
+  home.file.".config/gtk-4.0/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/assets";
+  home.file.".config/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/assets";
 }
