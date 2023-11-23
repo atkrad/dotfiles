@@ -88,8 +88,7 @@
     grpcurl
     hugo
     rnix-lsp
-    unstable.open-policy-agent
-    wait4x
+    unstable.wait4x
     unstable.ulid
 
     # K8S toolset
