@@ -45,16 +45,15 @@
       url = "github:dracula/gtk";
       flake = false;
     };
+    
+    dracula-wallpaper = {
+      url = "github:dracula/wallpaper";
+      flake = false;
+    };
+ 
     dracula-alacritty-theme = {
       url = "github:dracula/alacritty";
       flake = false;
-    };
-    wait4x = {
-      url = "github:atkrad/wait4x";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
     };
   };
 
