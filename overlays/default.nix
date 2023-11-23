@@ -11,16 +11,15 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-    wait4x = inputs.wait4x.packages.${prev.system}.default;
-    #dracula-theme = prev.dracula-theme.overrideAttrs (oldAttrs: {
-    #  version = "4.0.0";
-    #  src = final.fetchFromGitHub {
-    #    owner = "dracula";
-    #    repo = "gtk";
-    #    rev = "f9fbda87504e284fe458bd10e9f1f6532b378c4e";
-    #    sha256 = "sha256-q3/uBd+jPFhiVAllyhqf486Jxa0mnCDSIqcm/jwGtJA=";
-    #  };
-    #});
+    dracula-theme = prev.dracula-theme.overrideAttrs (oldAttrs: {
+      version = "4.0.0";
+      src = final.fetchFromGitHub {
+        owner = "dracula";
+        repo = "gtk";
+        rev = "995626dc1483c42ea1548542c366681a27fc125f";
+        sha256 = "sha256-OK5jCAC4puW2HQnvB56UcCcKHciX7n4nf+FHM1pbPPk=";
+      };
+   });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
