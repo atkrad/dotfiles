@@ -8,12 +8,18 @@
     gnomeExtensions.appindicator
     gnome.gnome-tweaks
     gnome-console
-    unstable.dracula-theme
   ];
 
   gtk = {
     enable = true;
-    cursorTheme.name = "Dracula-cursors";
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    cursorTheme = {
+      name = "Dracula-cursors";
+      package = pkgs.dracula-theme;
+    };
   };
 
   dconf = {
@@ -28,16 +34,16 @@
         theme = "auto";
       };
       "org/gnome/desktop/calendar" = {
-        show-weekdate = true;
+        show-weekdate = false;
       };
       "org/gnome/desktop/interface" = {
-        gtk-theme = "Adwaita"; # e.g. "Adwaita", "Dracula"
+        gtk-theme = "Dracula"; # e.g. "Adwaita", "Dracula"
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
         monospace-font-name = "JetbrainsMono Nerd Font 13";
       };
       "org/gnome/desktop/wm/preferences" = {
-        theme = "";
+        theme = "Dracula"; # e.g. "", "Dracula"
         workspace-names = [
           "main"
           "dev"
@@ -45,7 +51,7 @@
         button-layout = "appmenu:minimize,close";
       };
       "org/gnome/shell/extensions/user-theme" = {
-        name = ""; # e.g. "", "Dracula"
+        name = "Dracula"; # e.g. "", "Dracula"
       };
       "org/gnome/desktop/peripherals/mouse" = {
         natural-scroll = false;
@@ -54,7 +60,11 @@
         natural-scroll = false;
         tap-to-click = true;
       };
-      "org/gnome/shell/app-switcher" = {
+      "org/gnome/desktop/background" = {
+        picture-uri = "file://${inputs.dracula-wallpaper}/first-collection/base.png";
+        picture-uri-dark = "file://${inputs.dracula-wallpaper}/first-collection/base.png";
+      };
+     "org/gnome/shell/app-switcher" = {
         current-workspace-only = true;
       };
       "org/gnome/shell/extensions/auto-move-windows" = {
@@ -91,4 +101,8 @@
       };
     };
   };
+  home.file.".config/gtk-4.0/gtk.css".source = "${inputs.dracula-gtk-theme}/gtk-4.0/gtk.css";
+  home.file.".config/gtk-4.0/gtk-dark.css".source = "${inputs.dracula-gtk-theme}/gtk-4.0/gtk-dark.css";
+  home.file.".config/gtk-4.0/assets".source = "${inputs.dracula-gtk-theme}/gtk-4.0/assets";
+  home.file.".config/assets".source = "${inputs.dracula-gtk-theme}/assets";
 }
