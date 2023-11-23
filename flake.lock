@@ -32,22 +32,6 @@
         "type": "github"
       }
     },
-    "dracula-gtk-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1700594783,
-        "narHash": "sha256-OK5jCAC4puW2HQnvB56UcCcKHciX7n4nf+FHM1pbPPk=",
-        "owner": "dracula",
-        "repo": "gtk",
-        "rev": "995626dc1483c42ea1548542c366681a27fc125f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dracula",
-        "repo": "gtk",
-        "type": "github"
-      }
-    },
     "dracula-wallpaper": {
       "flake": false,
       "locked": {
@@ -249,7 +233,6 @@
       "inputs": {
         "delta": "delta",
         "dracula-alacritty-theme": "dracula-alacritty-theme",
-        "dracula-gtk-theme": "dracula-gtk-theme",
         "dracula-wallpaper": "dracula-wallpaper",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
