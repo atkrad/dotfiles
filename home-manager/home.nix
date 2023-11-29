@@ -23,7 +23,7 @@
     ./gnome
     ./most
     ./go
-    ./exa
+    ./eza
     ./gpg
     ./keybase
     ./zoxide
@@ -83,7 +83,7 @@
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
     unstable.jetbrains.datagrip
-    postman
+    #postman
     jq
     grpcurl
     hugo
