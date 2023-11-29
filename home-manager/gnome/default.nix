@@ -64,7 +64,10 @@
         picture-uri = "file://${inputs.dracula-wallpaper}/first-collection/base.png";
         picture-uri-dark = "file://${inputs.dracula-wallpaper}/first-collection/base.png";
       };
-     "org/gnome/shell/app-switcher" = {
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "file://${inputs.dracula-wallpaper}/first-collection/base.png";
+      };
+      "org/gnome/shell/app-switcher" = {
         current-workspace-only = true;
       };
       "org/gnome/shell/extensions/auto-move-windows" = {
