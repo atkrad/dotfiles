@@ -3,11 +3,11 @@
     "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1711107274,
-        "narHash": "sha256-L2r3h/IfjqKZ0AUQbbj2A/oCse92mEcKihtWVZV9AqQ=",
+        "lastModified": 1714831244,
+        "narHash": "sha256-I9xUGgWIyZUFkaxqTU5P5E2lIXQRyh8sg3nd8kGSIXE=",
         "owner": "dandavison",
         "repo": "delta",
-        "rev": "3c6c50e4f5a515f17240a8205e2e6941809dcdff",
+        "rev": "d995bf76cfe3ce4d0a89e4da647692319ee88c38",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1714656196,
-        "narHash": "sha256-kjQkA98lMcsom6Gbhw8SYzmwrSo+2nruiTcTZp5jK7o=",
+        "lastModified": 1714912032,
+        "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "94035b482d181af0a0f8f77823a790b256b7c3cc",
+        "rev": "ee4a6e0f566fe5ec79968c57a9c2c3c25f2cf41d",
         "type": "github"
       },
       "original": {
@@ -215,11 +215,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1714531828,
-        "narHash": "sha256-ILsf3bdY/hNNI/Hu5bSt2/KbmHaAVhBbNUOdGztTHEg=",
+        "lastModified": 1714782413,
+        "narHash": "sha256-tbg0MEuKaPcUrnmGCu4xiY5F+7LW2+ECPKVAJd2HLwM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0638fe2715d998fa81d173aad264eb671ce2ebc1",
+        "rev": "651b4702e27a388f0f18e1b970534162dec09aff",
         "type": "github"
       },
       "original": {
