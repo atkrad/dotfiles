@@ -7,6 +7,10 @@
     protoc-gen-go-grpc
   ];
 
+  home.sessionVariables = {
+    GOPROXY = "https://proxy.golang.org,direct";
+  };
+
   programs.go = {
     enable = true;
     package = pkgs.unstable.go;
