@@ -3,11 +3,11 @@
     "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1723719733,
-        "narHash": "sha256-9wLF8XSR7/n+4BQzTmsaVn2TZ+GP+UeQpsLTFw/ENkc=",
+        "lastModified": 1723814394,
+        "narHash": "sha256-ebOmoL+tCGAI3l50Lw6bJ3SbFi5k4SVuJ1Rzw0ES+SI=",
         "owner": "dandavison",
         "repo": "delta",
-        "rev": "08ec386f2517ea25c8810be924847fe54018a023",
+        "rev": "cecb12c6534adc818c60acc69b4086592c2ff846",
         "type": "github"
       },
       "original": {
@@ -45,24 +45,6 @@
       "original": {
         "owner": "dracula",
         "repo": "wallpaper",
-        "type": "github"
-      }
-    },
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -124,25 +106,9 @@
         "delta": "delta",
         "dracula-alacritty-theme": "dracula-alacritty-theme",
         "dracula-wallpaper": "dracula-wallpaper",
-        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
       }
     }
   },
