@@ -1,6 +1,10 @@
-{ inputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     most
   ];
@@ -9,4 +13,3 @@
     MANPAGER = "most";
   };
 }
-

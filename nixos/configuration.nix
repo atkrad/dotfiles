@@ -1,22 +1,26 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules.cato-client
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
     # I also split up my configuration and import pieces of it here:
-    ./nix-ld
     ./fonts
     ./locate
+    ./gnupg
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -50,7 +54,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -65,11 +69,9 @@
   };
 
   boot = {
-    # X Server has been failed to start with the newer 12th generation, Alder Lake, iRISxe integrated graphics chips.
-    # You have to give the kernel hint as to what driver to use.
-    # The "22e8" is my device id.
-    kernelParams = [ "i915.force_probe=22e8" ];
-    supportedFilesystems = [ "ntfs" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["kvm-amd" "kvm-intel"];
+    supportedFilesystems = ["ntfs"];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 15;
@@ -81,8 +83,8 @@
   networking.hostName = "nixie-ci"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.networkmanager.dns = "dnsmasq";
+  #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  #networking.networkmanager.dns = "dnsmasq";
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -114,8 +116,26 @@
     displayManager.gdm.enable = true;
     # Enable the GNOME Desktop Environment.
     desktopManager.gnome.enable = true;
-    excludePackages = [ pkgs.xterm ];
+    excludePackages = [pkgs.xterm];
+    xkb = {
+      # Configure keymap in X11
+      layout = "us";
+    };
   };
+
+  services.resolved = {
+    enable = true;
+    #dnssec = "true";
+    domains = ["~."];
+    fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+    #dnsovertls = "true";
+  };
+
+  #systemd.packages = [ pkgs.cato ]; # this pulls in the .service file
+
+  #systemd.services = {
+  #  cato-client.wantedBy = [ "multi-user.target"]; # this makes it run
+  #};
 
   # Enable fingerprint
   services.fprintd.enable = false;
@@ -124,8 +144,6 @@
   # fwupd is a simple daemon allowing you to update some devices' firmware.
   services.fwupd.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
@@ -134,15 +152,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Using a printer that shared on the network
-  services.avahi = {
-    enable = true;
-    # Important to resolve .local domains of printers, otherwise you get an error
-    # like  "Impossible to connect to XXX.local: Name or service not known"
-    nssmdns = true;
-    # for a WiFi printer
-    openFirewall = true;
-  };
+  services.flatpak.enable = true;
+
+  services.cato-client.enable = true;
+
+  services.udev.packages = with pkgs; [
+    vial
+    via
+  ];
 
   # Enable sound.
   sound.enable = true;
@@ -150,7 +167,7 @@
 
   # Accelerated Video Playback
   nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
   hardware.opengl = {
     enable = true;
@@ -159,33 +176,41 @@
       vaapiVdpau
       libvdpau-va-gl
       intel-media-driver
+      libGL
     ];
+    setLdLibraryPath = true;
   };
 
-  # Docker	
+  # Docker
   virtualisation.docker = {
     enable = true;
-    autoPrune.dates = "monthly"; # Specification (in the format described by systemd.time(7)) of the time at which the prune will occur.
+    autoPrune.dates = "weekly"; # Specification (in the format described by systemd.time(7)) of the time at which the prune will occur.
   };
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  programs.virt-manager.enable = true;
+
+  security.polkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.gpaste.enable = true;
   programs.zsh.enable = true;
-  programs.gpaste.enable = true;  
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mohammad = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
     initialPassword = "nixie";
     shell = pkgs.zsh;
   };
 
   environment = {
     # ZSH link for system package completion
-    pathsToLink = [ "/share/zsh" ];
-    shells = [ pkgs.zsh pkgs.bash ];
+    pathsToLink = ["/share/zsh"];
+    shells = [pkgs.zsh pkgs.bash];
     # List packages installed in system profile.
     systemPackages = with pkgs; [
       nano
@@ -193,6 +218,7 @@
       pciutils
       usbutils
       gparted
+      spice-gtk
     ];
     gnome.excludePackages = with pkgs; [
       baobab

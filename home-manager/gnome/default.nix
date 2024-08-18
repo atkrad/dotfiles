@@ -1,21 +1,28 @@
-{ inputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     #gnomeExtensions.persian-calendar
     unstable.gnomeExtensions.tiling-assistant
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
     gnome.gnome-tweaks
+    gnome.gnome-boxes
     gnome-console
+    unstable.ptyxis
+    gradience
   ];
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
+    #theme = {
+    #  name = "Dracula";
+    #  package = pkgs.dracula-theme;
+    #};
     cursorTheme = {
       name = "Dracula-cursors";
       package = pkgs.dracula-theme;
@@ -37,13 +44,13 @@
         show-weekdate = false;
       };
       "org/gnome/desktop/interface" = {
-        gtk-theme = "Dracula"; # e.g. "Adwaita", "Dracula"
+        gtk-theme = "Adwaita"; # e.g. "Adwaita", "Dracula"
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
         monospace-font-name = "JetbrainsMono Nerd Font 13";
       };
       "org/gnome/desktop/wm/preferences" = {
-        theme = "Dracula"; # e.g. "", "Dracula"
+        theme = ""; # e.g. "", "Dracula"
         workspace-names = [
           "main"
           "dev"
@@ -51,7 +58,7 @@
         button-layout = "appmenu:minimize,close";
       };
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Dracula"; # e.g. "", "Dracula"
+        name = ""; # e.g. "", "Dracula"
       };
       "org/gnome/desktop/peripherals/mouse" = {
         natural-scroll = false;
@@ -77,7 +84,7 @@
           "phpstorm.desktop:2"
           "datagrip.desktop:2"
           "postman.desktop:2"
-          "teams.desktop:3"
+          "teams-for-linux.desktop:3"
           "spotify.desktop:4"
         ];
       };
@@ -94,7 +101,7 @@
         ];
         favorite-apps = [
           "firefox.desktop"
-          "Alacritty.desktop"
+          "org.gnome.Ptyxis.desktop"
           "org.gnome.Nautilus.desktop"
           "postman.desktop"
           "goland.desktop"
@@ -104,8 +111,8 @@
       };
     };
   };
-  home.file.".config/gtk-4.0/gtk.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk.css";
-  home.file.".config/gtk-4.0/gtk-dark.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk-dark.css";
-  home.file.".config/gtk-4.0/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/assets";
-  home.file.".config/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/assets";
+  #home.file.".config/gtk-4.0/gtk.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk.css";
+  #home.file.".config/gtk-4.0/gtk-dark.css".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/gtk-dark.css";
+  #home.file.".config/gtk-4.0/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/gtk-4.0/assets";
+  #home.file.".config/assets".source = "${pkgs.dracula-theme}/share/themes/Dracula/assets";
 }

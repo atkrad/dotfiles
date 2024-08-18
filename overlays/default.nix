@@ -1,8 +1,7 @@
 # This file defines overlays
-{ inputs, ... }:
-{
+{inputs, ...}: {
   # This one brings my custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs { pkgs = final; };
+  additions = final: _prev: import ../pkgs final.pkgs;
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -16,10 +15,10 @@
       src = final.fetchFromGitHub {
         owner = "dracula";
         repo = "gtk";
-        rev = "995626dc1483c42ea1548542c366681a27fc125f";
+        rev = "48bdcc5e37c90d74e7e2139412a89209cc05a672";
         sha256 = "sha256-OK5jCAC4puW2HQnvB56UcCcKHciX7n4nf+FHM1pbPPk=";
       };
-   });
+    });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
@@ -31,4 +30,3 @@
     };
   };
 }
-

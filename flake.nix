@@ -3,108 +3,97 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # I use the unstable nixpkgs repo for some packages.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Pure Nix flake utility functions
-    flake-utils.url = "github:numtide/flake-utils";
-
-    # Nix-LD, Run unpatched dynamic binaries on NixOS.
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
     };
 
     # Delta is a syntax-highlighting pager for git, diff, and grep output.
-    # NOTE: Include just for "themes.gitconfig" file 
-    delta = { 
-      url = github:dandavison/delta; 
-      flake = false; 
+    # NOTE: Include just for "themes.gitconfig" file
+    delta = {
+      url = github:dandavison/delta;
+      flake = false;
     };
 
     dracula-wallpaper = {
       url = "github:dracula/wallpaper";
       flake = false;
     };
- 
+
     dracula-alacritty-theme = {
       url = "github:dracula/alacritty";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let
-      inherit (self) outputs;
-    in
-    rec {
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = inputs.flake-utils.lib.eachDefaultSystem (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
-      );
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    # Supported systems for your flake packages, shell, etc.
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in rec {
+    # My custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      # Devshell for bootstrapping
-      # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = inputs.flake-utils.lib.eachDefaultSystem (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      # My custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
 
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
 
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild switch --flake .#nixie-ci'
-      nixosConfigurations = {
-        nixie-ci = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; }; # Pass flake inputs and outputs to the config
-          modules = [
-            # My main nixos configuration file
-            ./nixos/configuration.nix
-          ];
-        };
-      };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager switch --flake .#mohammad@nixie-ci'
-      homeConfigurations = {
-        "mohammad@nixie-ci" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Home Manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
-          modules = [
-            # My main home-manager configuration file
-            ./home-manager/home.nix
-          ];
-        };
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild switch --flake .#nixie-ci'
+    nixosConfigurations = {
+      nixie-ci = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;}; # Pass flake inputs and outputs to the config
+        modules = [
+          # My main nixos configuration file
+          ./nixos/configuration.nix
+        ];
       };
     };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager switch --flake .#mohammad@nixie-ci'
+    homeConfigurations = {
+      "mohammad@nixie-ci" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home Manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # My main home-manager configuration file
+          ./home-manager/home.nix
+        ];
+      };
+    };
+  };
 }

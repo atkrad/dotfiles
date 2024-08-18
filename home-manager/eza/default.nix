@@ -1,8 +1,11 @@
-{ inputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   programs.eza = {
     enable = true;
-    enableAliases = true;
   };
 }

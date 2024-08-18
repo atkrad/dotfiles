@@ -1,6 +1,10 @@
-{ inputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -10,9 +14,9 @@
     plugins = with pkgs.vimPlugins; [
       dracula-nvim
       {
-      	plugin = nvim-treesitter.withAllGrammars;
-	type = "lua";
-	config = builtins.readFile ./treesitter.lua;
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = builtins.readFile ./treesitter.lua;
       }
     ];
     extraConfig = ''

@@ -1,6 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -54,7 +59,7 @@
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -73,21 +78,24 @@
     firefox
     google-chrome
     unstable.teams-for-linux
-    spotify
+    unstable.spotify
     vlc
+    openssl
     appimage-run
-    
+    remmina
+    unstable.thunderbird
+
     # Development
     gcc
     nodejs
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
     unstable.jetbrains.datagrip
+    unstable.jetbrains-toolbox
     #postman
     jq
     grpcurl
     hugo
-    rnix-lsp
     unstable.wait4x
     unstable.ulid
 
@@ -101,7 +109,7 @@
     argo
 
     buildah
-    
+
     # Infra
     awscli2
     terraform
