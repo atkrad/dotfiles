@@ -105,10 +105,11 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     earlySetup = true;
-    font = "ter-124b";
+    font = "ter-powerline-v32n";
     keyMap = "us";
     packages = with pkgs; [
       terminus_font
+      powerline-fonts
     ];
     colors = [
       "282a36" # redefine 'black'          as 'dracula-bg'
