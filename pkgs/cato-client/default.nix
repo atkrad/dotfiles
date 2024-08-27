@@ -11,7 +11,7 @@ in
 
     src = pkgs.fetchurl {
       inherit version;
-      url = "https://clients.catonetworks.com/linux/$version/cato-client-install.deb";
+      url = "https://clients.catonetworks.com/linux/5.2.1.1/cato-client-install.deb";
       sha256 = "sha256-0hUchaxaiKJth2ByQMFfjsCLi/4kl+SrNSQ33Y6r3WA=";
     };
 
