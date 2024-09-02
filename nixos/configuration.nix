@@ -21,6 +21,7 @@
     ./fonts
     ./locate
     ./gnupg
+    ./nix-ld
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -96,11 +97,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # V2Ray Configuration
-  services.v2ray.enable = false;
-  services.v2ray.package = pkgs.unstable.v2ray;
-  services.v2ray.configFile = "/home/mohammad/config.json";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -151,12 +147,6 @@
     fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
     #dnsovertls = "true";
   };
-
-  #systemd.packages = [ pkgs.cato ]; # this pulls in the .service file
-
-  #systemd.services = {
-  #  cato-client.wantedBy = [ "multi-user.target"]; # this makes it run
-  #};
 
   # Enable fingerprint
   services.fprintd.enable = false;
