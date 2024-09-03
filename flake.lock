@@ -3,11 +3,11 @@
     "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1724524228,
-        "narHash": "sha256-wsHvbO8ffXNJgWu66LZJhsS3SJiN2hCwPtGnHT+nklY=",
+        "lastModified": 1725312416,
+        "narHash": "sha256-JlPk1iFlCWO8AMoSVaz54tI91LCHspi0eDEmkhifFog=",
         "owner": "dandavison",
         "repo": "delta",
-        "rev": "218af1617f512b06bb1a7f52a15510fe56c5de80",
+        "rev": "2d1cb201ab1e3c6ebd8f5a6e9209ec5bdcb4d39a",
         "type": "github"
       },
       "original": {
