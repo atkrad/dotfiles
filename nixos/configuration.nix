@@ -84,11 +84,34 @@
     };
   };
 
-  networking.hostName = "nixie-ci";
+  networking = {
+    hostName = "nixie-ci";
+    hostId = "932d7537"; # head -c4 /dev/urandom | od -A none -t x4
+    nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+  };
+
+  networking.firewall = {
+    enable = true;
+    allowPing = false;
+    allowedTCPPorts = [8080];
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  #networking.networkmanager.dns = "dnsmasq";
+  networking.networkmanager = {
+    enable = true; # Easiest to use and most distros use this by default.
+
+    # one of "OFF", "ERR", "WARN", "INFO", "DEBUG", "TRACE"
+    logLevel = "INFO";
+
+    dns = "systemd-resolved";
+
+    # may generate problems
+    wifi = {
+      scanRandMacAddress = false;
+      powersave = false;
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -142,10 +165,16 @@
 
   services.resolved = {
     enable = true;
-    #dnssec = "true";
+    dnssec = "allow-downgrade";
+    dnsovertls = "opportunistic";
     domains = ["~."];
-    fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-    #dnsovertls = "true";
+    fallbackDns = [
+      "8.8.8.8"
+      "2001:4860:4860::8888"
+      "8.8.4.4"
+      "2001:4860:4860::8844"
+    ];
+    extraConfig = "MulticastDNS=true";
   };
 
   # Enable fingerprint
@@ -195,7 +224,10 @@
   # Docker
   virtualisation.docker = {
     enable = true;
-    autoPrune.dates = "weekly"; # Specification (in the format described by systemd.time(7)) of the time at which the prune will occur.
+    autoPrune = {
+      enable = true;
+      dates = "weekly"; # Specification (in the format described by systemd.time(7)) of the time at which the prune will occur.
+    };
   };
 
   virtualisation.libvirtd.enable = true;
