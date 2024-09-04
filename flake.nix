@@ -5,6 +5,8 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # I use the unstable nixpkgs repo for some packages.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
@@ -86,6 +88,7 @@
         modules = [
           # My main nixos configuration file
           ./nixos/configuration.nix
+	  inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
         ];
       };
     };
