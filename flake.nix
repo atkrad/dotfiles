@@ -88,7 +88,7 @@
         modules = [
           # My main nixos configuration file
           ./nixos/configuration.nix
-	  inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
         ];
       };
     };

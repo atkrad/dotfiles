@@ -217,6 +217,7 @@
       libvdpau-va-gl
       intel-media-driver
       libGL
+      libGLU
     ];
     setLdLibraryPath = true;
   };
