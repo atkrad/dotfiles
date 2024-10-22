@@ -184,11 +184,6 @@
   # fwupd is a simple daemon allowing you to update some devices' firmware.
   services.fwupd.enable = true;
 
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -287,6 +282,11 @@
       pkgs.gst_all_1.gst-plugins-ugly
       pkgs.gst_all_1.gst-plugins-base
     ];
+  };
+
+  services.thinkfan = {
+    enable = true;
+    smartSupport = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
