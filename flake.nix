@@ -2,15 +2,22 @@
   description = "My NixOS configurations";
 
   inputs = {
-    # Nixpkgs
+    # Specifies the URL for the NixOS 24.05 release of the Nixpkgs repository.
+    # This input is used to access the Nixpkgs package set for the 24.05 NixOS release.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    # Specifies the URL for the NixOS hardware configuration repository.
+    # This input is used to access the hardware configurations provided by the NixOS project.
+    # The hardware configurations can be used to configure the hardware-specific aspects of a NixOS system.
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # I use the unstable nixpkgs repo for some packages.
+    # Specifies the URL for the NixOS unstable Nixpkgs repository.
+    # This input is used to access the Nixpkgs package set for the unstable NixOS release.
+    # The unstable Nixpkgs repository is used for some packages that are not available in the stable release.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Home Manager
+    # The home-manager input specifies the URL for the Home Manager repository,
+    # which is used to manage user-specific configurations.
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs = {
@@ -32,11 +39,16 @@
       flake = false;
     };
 
+    # Dracula Wallpaper
+    #
+    # This input provides access to the Dracula theme wallpaper repository.
+    # The wallpapers can be used to customize the appearance of your system.
     dracula-wallpaper = {
       url = "github:dracula/wallpaper";
       flake = false;
     };
 
+    # Dracula Theme for Alacritty
     dracula-alacritty-theme = {
       url = "github:dracula/alacritty";
       flake = false;
@@ -96,12 +108,18 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager switch --flake .#mohammad@nixie-ci'
     homeConfigurations = {
-      "mohammad@nixie-ci" = home-manager.lib.homeManagerConfiguration {
+      "nixie-ci" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home Manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # My main home-manager configuration file
-          ./home-manager/home.nix
+          ./home-manager/nixie-ci.nix
+        ];
+      };
+      "nixie-lab" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home Manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/nixie-lab.nix
         ];
       };
     };

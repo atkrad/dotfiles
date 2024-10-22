@@ -15,53 +15,26 @@
     # inputs.nix-colors.homeManagerModule
 
     # I split up my configuration and imported pieces of it here:
-    ./zsh
-    ./bash
-    ./neovim
-    ./tmux
-    ./fzf
-    ./starship
-    ./bat
-    ./btop
-    ./git
-    ./alacritty
-    ./gnome
-    ./most
-    ./go
-    ./eza
-    ./gpg
-    ./keybase
-    ./zoxide
-    ./vscode
+    ./modules/nixpkgs
+    ./modules/zsh
+    ./modules/bash
+    ./modules/neovim
+    ./modules/tmux
+    ./modules/fzf
+    ./modules/starship
+    ./modules/bat
+    ./modules/btop
+    ./modules/git
+    ./modules/alacritty
+    ./modules/gnome
+    ./modules/most
+    ./modules/go
+    ./modules/eza
+    ./modules/gpg
+    ./modules/keybase
+    ./modules/zoxide
+    ./modules/vscode
   ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays your own flake exports (from overlays dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-
-      # Or overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-    };
-  };
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -82,12 +55,10 @@
     vlc
     openssl
     appimage-run
-    remmina
     unstable.thunderbird
 
     # Development
     gcc
-    nodejs
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
     unstable.jetbrains.datagrip
@@ -95,7 +66,6 @@
     #postman
     jq
     grpcurl
-    hugo
     unstable.wait4x
     unstable.ulid
 
@@ -105,7 +75,6 @@
     unstable.kubernetes-helm
     minikube
     kind
-    lens
     argo
 
     buildah
