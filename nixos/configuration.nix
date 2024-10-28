@@ -82,6 +82,9 @@
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
     };
+    extraModprobeConfig = ''
+      options thinkpad_acpi fan_control=1
+    '';
   };
 
   networking = {
@@ -185,7 +188,10 @@
   services.fwupd.enable = true;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [hplip];
+  };
 
   services.flatpak.enable = true;
 
