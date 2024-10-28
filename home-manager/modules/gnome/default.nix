@@ -48,6 +48,7 @@
         show-battery-percentage = true;
         color-scheme = "prefer-dark";
         monospace-font-name = "JetbrainsMono Nerd Font 13";
+        locate-pointer = true;
       };
       "org/gnome/desktop/wm/preferences" = {
         theme = ""; # e.g. "", "Dracula"
