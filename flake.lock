@@ -3,11 +3,11 @@
     "delta": {
       "flake": false,
       "locked": {
-        "lastModified": 1730757321,
-        "narHash": "sha256-jTFKiid9XWDOUf1Q48GKu6A/PsspCRnMcTmlR/bsYck=",
+        "lastModified": 1730801042,
+        "narHash": "sha256-BnRZC/Y+Ubz4f0XsBLNxBJTcrKOxziIYbPp2WinBVro=",
         "owner": "dandavison",
         "repo": "delta",
-        "rev": "c3fba1cd07b75187bedd83229b11d910dd9aeef5",
+        "rev": "4e3702c7fdcd7fe56df2746de9f12baa73132530",
         "type": "github"
       },
       "original": {
@@ -164,11 +164,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1730537918,
-        "narHash": "sha256-GJB1/aaTnAtt9sso/EQ77TAGJ/rt6uvlP0RqZFnWue8=",
+        "lastModified": 1730797322,
+        "narHash": "sha256-cH9emjYIbDYTde/CKOmU97rh7sKuyfedzPcTz4OTJkE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "f6e0cd5c47d150c4718199084e5764f968f1b560",
+        "rev": "1b0b927860d7eb367ee6a3123ddeb7a8e24bd836",
         "type": "github"
       },
       "original": {
