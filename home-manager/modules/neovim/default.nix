@@ -99,6 +99,17 @@
           }
         '';
       }
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = ''
+          require("which-key").setup {
+            win = {
+              border = "single",
+            },
+          }
+        '';
+      }
     ];
     extraConfig = ''
       syntax on
@@ -108,6 +119,9 @@
       set number                        " Show line numbers
       set ruler                         " Show line and column number
       set termguicolors
+    '';
+    extraLuaConfig = ''
+      vim.keymap.set("n", "<space><space>", function() require("which-key").show() end)
     '';
     extraPackages = with pkgs; [
       # For tree-sitter
