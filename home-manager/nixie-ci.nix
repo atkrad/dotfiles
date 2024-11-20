@@ -45,6 +45,7 @@
 
   home.packages = with pkgs; [
     file
+    tree
     gnumake
     dig
     curl
