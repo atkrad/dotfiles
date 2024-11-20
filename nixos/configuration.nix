@@ -82,9 +82,6 @@
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
     };
-    extraModprobeConfig = ''
-      options thinkpad_acpi fan_control=1
-    '';
   };
 
   networking = {
@@ -168,7 +165,7 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
+    dnssec = "false";
     dnsovertls = "opportunistic";
     domains = ["~."];
     fallbackDns = [
@@ -288,11 +285,6 @@
       pkgs.gst_all_1.gst-plugins-ugly
       pkgs.gst_all_1.gst-plugins-base
     ];
-  };
-
-  services.thinkfan = {
-    enable = true;
-    smartSupport = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
