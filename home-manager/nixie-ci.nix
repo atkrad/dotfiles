@@ -56,7 +56,6 @@
     vlc
     openssl
     appimage-run
-    unstable.thunderbird
 
     # Development
     gcc
