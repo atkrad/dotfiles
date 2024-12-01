@@ -199,15 +199,20 @@
     via
   ];
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Accelerated Video Playback
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       vaapiIntel
@@ -217,7 +222,6 @@
       libGL
       libGLU
     ];
-    setLdLibraryPath = true;
   };
 
   # Docker
@@ -268,15 +272,15 @@
       gnome-tour
       gnome-photos
       gnome-connections
-      gnome.totem
-      gnome.geary
-      gnome.gnome-logs
-      gnome.gnome-maps
-      gnome.simple-scan
-      gnome.gnome-music
-      gnome.gnome-contacts
-      gnome.gnome-characters
-      gnome.gnome-disk-utility
+      totem
+      geary
+      gnome-logs
+      gnome-maps
+      simple-scan
+      gnome-music
+      gnome-contacts
+      gnome-characters
+      gnome-disk-utility
     ];
     # Note: https://github.com/NixOS/nixpkgs/issues/195936
     sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [

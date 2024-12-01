@@ -10,8 +10,8 @@
     unstable.gnomeExtensions.tiling-assistant
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
-    gnome.gnome-tweaks
-    gnome.gnome-boxes
+    gnome-tweaks
+    gnome-boxes
     gnome-console
     unstable.ptyxis
     gradience
