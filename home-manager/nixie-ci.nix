@@ -34,6 +34,7 @@
     ./modules/keybase
     ./modules/zoxide
     ./modules/vscode
+    ./modules/thefuck
   ];
 
   # Home Manager needs a bit of information about you and the
