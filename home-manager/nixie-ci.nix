@@ -53,32 +53,24 @@
     firefox
     google-chrome
     unstable.teams-for-linux
-    unstable.spotify
+    spotify
     vlc
     openssl
     appimage-run
 
     # Development
     gcc
-    unstable.jetbrains.goland
-    unstable.jetbrains.phpstorm
-    unstable.jetbrains.datagrip
-    unstable.jetbrains-toolbox
-    #postman
+    jetbrains.goland
+    jetbrains.phpstorm
+    jetbrains.datagrip
     jq
-    grpcurl
-    unstable.wait4x
-    unstable.ulid
+    wait4x
+    ulid
 
     # K8S toolset
     kubectx
     kubectl
-    unstable.kubernetes-helm
-    minikube
-    kind
-    argo
-
-    buildah
+    kubernetes-helm
 
     # Infra
     awscli2
