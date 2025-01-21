@@ -15,8 +15,8 @@
       src = final.fetchFromGitHub {
         owner = "dracula";
         repo = "gtk";
-        rev = "48bdcc5e37c90d74e7e2139412a89209cc05a672";
-        sha256 = "sha256-OK5jCAC4puW2HQnvB56UcCcKHciX7n4nf+FHM1pbPPk=";
+        rev = "f77cf5caeac0ad7d71c8e568f699a197a100e75a";
+        sha256 = "sha256-0GO6Y0S7d4zQX7DJFF/l0RuPOw3NaI1wh4/8AJqOqDo=";
       };
     });
   };
