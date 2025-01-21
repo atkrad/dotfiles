@@ -7,13 +7,12 @@
 }: {
   home.packages = with pkgs; [
     #gnomeExtensions.persian-calendar
-    unstable.gnomeExtensions.tiling-assistant
+    gnomeExtensions.tiling-assistant
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
     gnome-tweaks
     gnome-boxes
-    gnome-console
-    unstable.ptyxis
+    ptyxis
     gradience
   ];
 
