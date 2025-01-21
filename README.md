@@ -1,6 +1,6 @@
-# My NixOS Configuration and Dotfiles
+# Nixie
 
-This repository contains the NixOS configuration and dotfiles for my machines. It includes settings for various tools and applications, such as system services, window managers, terminal emulators, and text editors. By sharing these configurations, others can learn from my setup and adapt it to their own needs.
+This repository contains the NixOS configuration and dotfiles for my machines, collectively named **Nixie**. It includes settings for various tools and applications, such as system services, window managers, terminal emulators, and text editors. By sharing these configurations, others can learn from my setup and adapt it to their own needs.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ This repository contains the NixOS configuration and dotfiles for my machines. I
 
 ## Overview
 
-The purpose of this repository is to provide a well-organized, version-controlled, and easily maintainable configuration for NixOS. It aims to make it easier for users to manage their personal computing environment and ensure consistency across multiple devices.
+The purpose of this repository is to provide a well-organized, version-controlled, and easily maintainable configuration for NixOS. It aims to simplify managing a personal computing environment and ensure consistency across multiple devices. The name **Nixie** reflects the project's modular and elegant approach to NixOS customization.
 
 ## Prerequisites
 
@@ -25,19 +25,19 @@ The purpose of this repository is to provide a well-organized, version-controlle
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/atkrad/dotfiles.git ~/.dotfiles
+git clone https://github.com/atkrad/nixie.git ~/.nixie
 ```
 
 2. Apply the NixOS configuration:
 
 ```shell
-sudo nixos-rebuild switch --flake ~/dotfiles#nixie-ci
+sudo nixos-rebuild switch --flake ~/.nixie#nixie-ci
 ```
 
 3. Apply the Home Manager configuration:
 
 ```shell
-home-manager switch --flake ~/dotfiles#mohammad@nixie-ci
+home-manager switch --flake ~/.nixie#mohammad@nixie-ci
 ```
 
 4. Restart your system to ensure all changes take effect:
@@ -50,21 +50,45 @@ systemctl reboot -i
 
 The repository is organized as follows:
 
-- `nixos/`: Contains the main `configuration.nix` file and other NixOS-specific configurations.
-- `home-manager/`: Contains configuration files for Home Manager, which manages user-specific dotfiles and settings.
-- `modules/`: Contains NixOS modules for configuring specific applications or services.
-- `overlays/`: Contains Nix package overlays to customize or extend the default NixOS package set.
-- `pkgs/`: Contains custom packages, that can be defined similarly to ones from nixpkgs.
+- `nixos/`: Contains system-wide configurations, including the main `configuration.nix`.
+- `home-manager/`: Configurations for user-specific settings, like shell aliases, editor preferences, etc.
+- `modules/`: Modular configurations for specific services or applications (e.g., Docker, Kubernetes).
+- `overlays/`: Custom Nix package definitions or overrides.
+- `pkgs/`: Custom Nix packages defined similarly to `nixpkgs`.
+
+This modular structure ensures a clean and maintainable configuration that can be easily extended or reused.
 
 ## Customization
 
 To customize the configuration, you can modify the relevant files within the repository. Be sure to test your changes before committing them to ensure they work as expected.
 
-If you want to add a new package, service, or configuration, consider creating a new NixOS module within the `modules/` directory to keep the configuration modular and maintainable.
+### Example: Adding a New Package
+
+1. Edit the `home-manager` configuration to include the desired package:
+
+```nix
+home.packages = with pkgs; [
+  vim
+  firefox
+  # Add your package here
+];
+```
+
+2. Apply the changes:
+
+```shell
+home-manager switch --flake ~/.nixie#mohammad@nixie-ci
+```
+
+### Secrets and Sensitive Data
+
+Avoid committing sensitive information (e.g., API keys, passwords). Instead, use tools like `git-crypt` or environment variables to manage secrets securely.
 
 ## Acknowledgements
 
-This repository is inspired by the work and ideas of numerous NixOS community members. Feel free to use, adapt, and share this configuration as needed, but please give credit where it's due.
+This repository is inspired by the work and ideas of numerous NixOS community members. Special thanks to the maintainers of NixOS, Home Manager, and related projects for their invaluable contributions.
+
+Feel free to use, adapt, and share this configuration as needed, but please give credit where it's due.
 
 ---
 
