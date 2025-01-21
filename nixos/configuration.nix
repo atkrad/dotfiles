@@ -78,7 +78,7 @@
     supportedFilesystems = ["ntfs"];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 15;
+      systemd-boot.configurationLimit = 5;
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
     };
@@ -203,7 +203,6 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
   };
@@ -265,6 +264,7 @@
       usbutils
       gparted
       spice-gtk
+      nixd
     ];
     gnome.excludePackages = with pkgs; [
       baobab
