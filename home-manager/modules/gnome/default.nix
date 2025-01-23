@@ -54,6 +54,7 @@
         workspace-names = [
           "main"
           "dev"
+          "etc"
         ];
         button-layout = "appmenu:minimize,close";
       };
@@ -80,13 +81,17 @@
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
           "firefox.desktop:1"
+          "org.gnome.Ptyxis.desktop:1"
           "goland.desktop:2"
           "phpstorm.desktop:2"
           "datagrip.desktop:2"
           "postman.desktop:2"
           "teams-for-linux.desktop:3"
-          "spotify.desktop:4"
+          "spotify.desktop:3"
         ];
+      };
+      "org/gnome/shell/extensions/workspace-indicator" = {
+        embed-previews = true;
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
@@ -98,6 +103,7 @@
           "GPaste@gnome-shell-extensions.gnome.org"
           "appindicatorsupport@rgcjonas.gmail.com"
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+          "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         ];
         favorite-apps = [
           "firefox.desktop"
