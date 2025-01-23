@@ -72,13 +72,12 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["i915.fastboot=1"];
     kernelModules = ["i915" "kvm-amd" "kvm-intel"];
     supportedFilesystems = ["ntfs"];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 5;
+      systemd-boot.configurationLimit = 10;
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
     };
