@@ -9,7 +9,9 @@ This repository contains the NixOS configuration and dotfiles for my machines, c
 - [Installation](#installation)
 - [Structure](#structure)
 - [Customization](#customization)
+- [Secrets and Sensitive Data](#secrets-and-sensitive-data)
 - [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 ## Overview
 
@@ -17,41 +19,45 @@ The purpose of this repository is to provide a well-organized, version-controlle
 
 ## Prerequisites
 
-- A NixOS-based system
-- Git
+Before using this configuration, ensure you have the following:
+
+- A **NixOS-based system**
+- **Git** installed
 
 ## Installation
 
+To set up Nixie on your system, follow these steps:
+
 1. Clone the repository:
 
-```shell
-git clone https://github.com/atkrad/nixie.git ~/.nixie
-```
+   ```sh
+   git clone https://github.com/atkrad/nixie.git ~/.nixie
+   ```
 
 2. Apply the NixOS configuration:
 
-```shell
-sudo nixos-rebuild switch --flake ~/.nixie#nixie-ci
-```
+   ```sh
+   sudo nixos-rebuild switch --flake ~/.nixie#nixie-ci
+   ```
 
-3. Apply the Home Manager configuration:
+3. Apply the Home Manager configuration (replace `mohammad@nixie-ci` with your username and hostname if different):
 
-```shell
-home-manager switch --flake ~/.nixie#mohammad@nixie-ci
-```
+   ```sh
+   home-manager switch --flake ~/.nixie#mohammad@nixie-ci
+   ```
 
 4. Restart your system to ensure all changes take effect:
 
-```shell
-systemctl reboot -i
-```
+   ```sh
+   systemctl reboot -i
+   ```
 
 ## Structure
 
 The repository is organized as follows:
 
 - `nixos/`: Contains system-wide configurations, including the main `configuration.nix`.
-- `home-manager/`: Configurations for user-specific settings, like shell aliases, editor preferences, etc.
+- `home-manager/`: Configurations for user-specific settings, such as shell aliases and editor preferences.
 - `modules/`: Modular configurations for specific services or applications (e.g., Docker, Kubernetes).
 - `overlays/`: Custom Nix package definitions or overrides.
 - `pkgs/`: Custom Nix packages defined similarly to `nixpkgs`.
@@ -60,37 +66,54 @@ This modular structure ensures a clean and maintainable configuration that can b
 
 ## Customization
 
-To customize the configuration, you can modify the relevant files within the repository. Be sure to test your changes before committing them to ensure they work as expected.
+To customize the configuration, modify the relevant files within the repository. Be sure to test your changes before committing them to ensure they work as expected.
 
 ### Example: Adding a New Package
 
-1. Edit the `home-manager` configuration to include the desired package:
+1. Edit the Home Manager configuration to include the desired package:
 
-```nix
-home.packages = with pkgs; [
-  vim
-  firefox
-  # Add your package here
-];
-```
+   ```nix
+   home.packages = with pkgs; [
+     vim
+     firefox
+     # Add your package here
+   ];
+   ```
 
 2. Apply the changes:
 
-```shell
-home-manager switch --flake ~/.nixie#mohammad@nixie-ci
-```
+   ```sh
+   home-manager switch --flake ~/.nixie#mohammad@nixie-ci
+   ```
 
-### Secrets and Sensitive Data
+3. (Optional) Preview changes before applying them:
 
-Avoid committing sensitive information (e.g., API keys, passwords). Instead, use tools like `git-crypt` or environment variables to manage secrets securely.
+   ```sh
+   nixos-rebuild dry-run --flake ~/.nixie#nixie-ci
+   ```
+
+## Secrets and Sensitive Data
+
+Avoid committing sensitive information (e.g., API keys, passwords). Instead, use tools like **git-crypt** or environment variables to manage secrets securely.
 
 ## Acknowledgements
 
-This repository is inspired by the work and ideas of numerous NixOS community members. Special thanks to the maintainers of NixOS, Home Manager, and related projects for their invaluable contributions.
+This repository is inspired by the work and ideas of numerous NixOS community members. Special thanks to the maintainers of **NixOS**, **Home Manager**, and related projects for their invaluable contributions.
 
 Feel free to use, adapt, and share this configuration as needed, but please give credit where it's due.
 
----
+## License
 
-If you have any questions or suggestions, feel free to open an issue or submit a pull request. Contributions and feedback are always welcome!
+Copyright 2022-2025 Mohammad Abdolirad
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
